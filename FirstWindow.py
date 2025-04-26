@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel
+from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton
 
 
 class FirstWindow(QMainWindow): #Создал класс FirstWindow, родители которого является QMainWindow
@@ -10,6 +10,16 @@ class FirstWindow(QMainWindow): #Создал класс FirstWindow, родит
 
         self.label = QLabel('КУ',self)
         self.label.move(150,50) # задал кординаты label в окне
+
+        self.button = QPushButton('Кнопка',self)
+        self.button.move(150,100)
+        self.button.clicked.connect(self.on_button_click)
+
+    def on_button_click(self):
+        self.label.setText('Нажал ываываываыываыва')
+        self.label.adjustSize()
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv) #объект для создания окна
